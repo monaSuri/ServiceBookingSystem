@@ -1,5 +1,6 @@
 package com.OOPCwEx.ServiceBookingSystem.entity;
 
+import com.OOPCwEx.ServiceBookingSystem.dto.UserDto;
 import com.OOPCwEx.ServiceBookingSystem.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -25,4 +26,14 @@ public class User {
     private String phoneNumber;
 
     private UserRole role;
+
+    public UserDto getDto(){
+        UserDto userDto = new UserDto();
+        userDto.setId(id);
+        userDto.setEmail(email);
+        userDto.setFirstName(firstName);
+        userDto.setLastName(lastName);
+
+        return userDto;
+    }
 }
