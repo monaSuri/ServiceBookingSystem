@@ -10,7 +10,7 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { DemoNgZorroAntdModule } from './DemoNgZorroAntdModule';
 
 registerLocaleData(en);
@@ -26,13 +26,12 @@ registerLocaleData(en);
     AppRoutingModule,
     FormsModule,
     DemoNgZorroAntdModule,
-    HttpClientModule,
     ReactiveFormsModule
 
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US },
-
+    { provide: NZ_I18N, useValue: en_US},
+    { provide: HttpClient, useClass: HttpClient },
   ],
   bootstrap: [AppComponent]
 })
