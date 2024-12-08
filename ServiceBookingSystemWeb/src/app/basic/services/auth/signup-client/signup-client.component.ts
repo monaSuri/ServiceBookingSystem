@@ -30,7 +30,6 @@ export class SignupClientComponent implements OnInit {
     });
   }
 
-  // Custom validator to check if password and confirm password match
   matchPassword(passwordField: string) {
     return (control: AbstractControl) => {
       const formGroup = control.parent as FormGroup;
@@ -53,11 +52,11 @@ export class SignupClientComponent implements OnInit {
           this.router.navigateByUrl('/login');
         },
         (error) => {
-          console.log('Error occurred:', error); // Debugging the error response
+          console.error('Error occurred:', error);
           const errorMessage =
-            error.error?.message || 
+            error.error?.message ||
             (error instanceof ProgressEvent ? 'Network error occurred. Please try again.' : 'An unexpected error occurred.');
-            
+
           this.notification.error('ERROR', errorMessage, {
             nzDuration: 5000,
           });
