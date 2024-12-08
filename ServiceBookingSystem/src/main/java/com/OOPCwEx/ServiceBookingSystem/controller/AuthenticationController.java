@@ -29,4 +29,16 @@ public class AuthenticationController {
         UserDto createdUser = authService.signupClient(signupRequestDTO);
         return new ResponseEntity<>(createdUser, HttpStatus.OK);
     }
+
+    @PatchMapping("/company/sign-up")
+    public ResponseEntity<?> signupCompany(@RequestBody SignupRequestDTO signupRequestDTO) {
+
+        System.out.println("SignupRequestDTO class: " + SignupRequestDTO.class);
+
+        if (authService.presentByEmail(signupRequestDTO.getEmail()))
+            return new ResponseEntity<>("Company already exists with this Email!", HttpStatus.NOT_ACCEPTABLE);
+
+        UserDto createdUser = authService.signupClient(signupRequestDTO);
+        return new ResponseEntity<>(createdUser, HttpStatus.OK);
+    }
 }

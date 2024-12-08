@@ -33,4 +33,18 @@ public class AuthServiceImplementation implements AuthService {
     public Boolean presentByEmail(String email){
         return userRepository.findFirstByEmail(email) !=null;
     }
+
+    public UserDto signupCompany(SignupRequestDTO signupRequestDTO){
+        User user = new User();
+
+        user.setFirstName(signupRequestDTO.getFirstName());
+        user.setEmail(signupRequestDTO.getEmail());
+        user.setPhoneNumber(signupRequestDTO.getPhoneNumber());
+        user.setPassword(signupRequestDTO.getPassword());
+
+        user.setRole(UserRole.COMPANY);
+
+        return userRepository.save(user).getDto();
+    }
 }
+
