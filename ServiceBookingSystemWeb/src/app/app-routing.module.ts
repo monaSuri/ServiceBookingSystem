@@ -9,13 +9,15 @@ export const routes: Routes = [
   // Lazy-loaded route for company module
   { 
     path: 'company', 
-    loadChildren: () => import('./company/company.module').then(m => m.CompanyModule),
+    loadChildren: () => 
+      import('./company/company.module').then((m) => m.CompanyModule),
   },
 
   // Lazy-loaded route for client module
   { 
     path: 'client', 
-    loadChildren: () => import('./client/client.module').then(m => m.ClientModule),
+    loadChildren: () => 
+      import('./client/client.module').then((m) => m.ClientModule),
   },
 
   // Default route redirects to 'register_client'
@@ -26,7 +28,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })], // Enable tracing for debugging
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

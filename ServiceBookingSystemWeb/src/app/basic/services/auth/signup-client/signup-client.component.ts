@@ -47,26 +47,24 @@ export class SignupClientComponent implements OnInit {
     if (this.validateForm.valid) {
       this.authService.registerClient(this.validateForm.value).subscribe(
         (res) => {
-          this.notification.success('SUCCESS', 'Signup Successful', {
-            nzDuration: 5000,
-          });
+          this.notification.success('SUCCESS', 'Signup Successful', { nzDuration: 5000 });
           this.router.navigateByUrl('/login');
         },
         (error) => {
-          console.log('Error occurred:', error); // Debugging the error response
-          const errorMessage =
-            error.error?.message || 
-            (error instanceof ProgressEvent ? 'Network error occurred. Please try again.' : 'An unexpected error occurred.');
-            
-          this.notification.error('ERROR', errorMessage, {
-            nzDuration: 5000,
-          });
+          if (error.status === 409) {
+            // Handle conflict error
+            this.notification.error('ERROR', 'Email already exists. Please use a different email.', {
+              nzDuration: 5000,
+            });
+          } else {
+            console.error('Error occurred:', error); // Log other errors
+            const errorMessage = error.error?.message || 'An unexpected error occurred.';
+            this.notification.error('ERROR', errorMessage, { nzDuration: 5000 });
+          }
         }
       );
     } else {
-      this.notification.error('ERROR', 'Please complete the form correctly.', {
-        nzDuration: 5000,
-      });
+      this.notification.error('ERROR', 'Please complete the form correctly.', { nzDuration: 5000 });
     }
   }
 }
