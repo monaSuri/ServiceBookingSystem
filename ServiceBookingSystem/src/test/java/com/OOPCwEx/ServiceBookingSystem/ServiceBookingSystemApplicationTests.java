@@ -1,13 +1,14 @@
 package com.OOPCwEx.ServiceBookingSystem;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.Test;
+
 
 @SpringBootTest
-class ServiceBookingSystemApplicationTests {
+public class ServiceBookingSystemApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
 	}
 
 }

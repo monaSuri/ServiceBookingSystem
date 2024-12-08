@@ -1,22 +1,54 @@
 package com.OOPCwEx.ServiceBookingSystem.dto;
 
-
-import lombok.Data;
-
-@Data
-
 public class SignupRequestDTO {
-
-    private long id;
-
+    private String firstName;
+    private String lastName;
     private String email;
-
+    private String phoneNumber;  // Ensure this field exists
     private String password;
 
-    private String firstName;
+    // Getter and Setter for firstName
+    public String getFirstName() {
+        return firstName;
+    }
 
-    private String lastName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-    private String phoneNumber;
+    // Getter and Setter for lastName
+    public String getLastName() {
+        return lastName;
+    }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    // Getter and Setter for email
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    // Getter and Setter for phoneNumber
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    // Getter and Setter for password
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

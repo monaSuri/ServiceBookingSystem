@@ -5,4 +5,6 @@ import com.OOPCwEx.ServiceBookingSystem.dto.UserDto;
 
 public interface AuthService {
     UserDto signupClient(SignupRequestDTO signupRequestDTO);
+
+    Boolean presentByEmail(String email);
 }
