@@ -8,11 +8,12 @@ const BASIC_URL = 'http://localhost:8090/'
   providedIn: 'root'
 })
 export class AuthService {
+  private apiUrl = 'http://localhost:8090/api';
 
   constructor(private http: HttpClient,) { }
 
-  registerClient(signupRequestDTO:any): Observable<any>{
-    return this.http.post(BASIC_URL + "client/sign-up", signupRequestDTO);
+  registerClient(data: any) {
+    return this.http.post(`${this.apiUrl}/register`, data);
   }
 
   registerCompany(signupRequestDTO:any): Observable<any>{

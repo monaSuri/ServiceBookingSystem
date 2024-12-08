@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './basic/components/login/login.component';
-import { SignupComponent } from './basic/components/signup/signup.component';
+import { SignupClientComponent } from './basic/services/auth/signup-client/signup-client.component';
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'register_client', component: SignupClientComponent },
+  { path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule)},
+  { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule)},
 ];
 
 @NgModule({

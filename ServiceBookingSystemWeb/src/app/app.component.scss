@@ -1,0 +1,56 @@
+/* Main header styling */
+.main-header {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Space between the title and navigation links */
+    align-items: center; /* Vertically center the content */
+    padding: 0px 20px; /* Add padding for spacing */
+    background-color: aquamarine; /* Header background color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  /* Title styling */
+  .main-header h2 {
+    font-size: 24px; /* Adjust font size */
+    color: rgb(40, 44, 48); /* Darker text for readability */
+    margin: 0; /* Remove default margin */
+    padding-left: 10px; /* Add padding for spacing */
+    font-weight: bold; /* Bold title */
+  }
+  
+  /* Navigation links container */
+  .nav-links {
+    display: flex; /* Align links horizontally */
+    gap: 15px; /* Add spacing between links */
+  }
+  
+  /* Individual navigation links */
+  .nav-links a {
+    font-size: 16px; /* Adjust font size */
+    color: rgb(40, 44, 48); /* Default link color */
+    font-weight: bold; /* Bold text */
+    text-transform: capitalize; /* Capitalize text (optional) */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+  
+    &:hover {
+      color: rgb(0, 123, 255); /* Change to blue on hover */
+    }
+  }
+  
+  /* Active link styling */
+  .nav-links a.active {
+    color: rgb(0, 123, 255); /* Highlight active link */
+    border-bottom: 2px solid rgb(0, 123, 255); /* Add underline for active link */
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .main-header {
+      flex-direction: column; /* Stack title and nav links */
+      align-items: center; /* Center-align content */
+    }
+  
+    .nav-links {
+      margin-top: 10px; /* Add spacing between title and links */
+      gap: 10px; /* Reduce gap between links */
+    }
+  }
