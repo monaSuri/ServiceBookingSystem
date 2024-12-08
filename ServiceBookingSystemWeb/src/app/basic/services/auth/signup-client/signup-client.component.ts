@@ -53,7 +53,12 @@ export class SignupClientComponent implements OnInit {
           this.router.navigateByUrl('/login');
         },
         (error) => {
-          this.notification.error('ERROR', error.message || 'An error occurred.', {
+          console.log('Error occurred:', error); // Debugging the error response
+          const errorMessage =
+            error.error?.message || 
+            (error instanceof ProgressEvent ? 'Network error occurred. Please try again.' : 'An unexpected error occurred.');
+            
+          this.notification.error('ERROR', errorMessage, {
             nzDuration: 5000,
           });
         }

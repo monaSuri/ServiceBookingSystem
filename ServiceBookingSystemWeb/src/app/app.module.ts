@@ -17,6 +17,7 @@ import { DemoNgZorroAntdModule } from './DemoNgZorroAntdModule';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { SignupClientComponent } from './basic/services/auth/signup-client/signup-client.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(en);
 
@@ -39,7 +40,8 @@ registerLocaleData(en);
     NzButtonModule,
     NzNotificationModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
 
   exports: [
